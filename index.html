@@ -1,57 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>GalaxyBlitz</title>
-
-    <link rel="stylesheet" href="style.css">
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GalaxyBlitz</title>
+<link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="game-container">
+<div class="game-container">
 
-        <div class="top-bar">
+    <div class="top-bar">
 
-            <h1>
-                GalaxyBlitz
-            </h1>
-
-            <p class="score-text">
-                Score: 0
+        <div>
+            <h1>GalaxyBlitz</h1>
+            <p class="subtitle">
+                Neon Space Shooter
             </p>
-
         </div>
 
-        <canvas
-            id="gameCanvas"
-            width="420"
-            height="650"
-        ></canvas>
-
-        <div class="info-box">
-
-            <p>
-                Use Arrow Keys To Move
-            </p>
-
-            <p>
-                Press Space To Shoot
-            </p>
-
-        </div>
+        <h2 class="score-text">
+            Score: 0
+        </h2>
 
     </div>
 
-    <script src="script.js"></script>
+    <canvas
+        id="gameCanvas"
+        width="420"
+        height="650"
+    ></canvas>
+
+    <div class="info-box">
+        <p>⬅️ ➡️ Move</p>
+        <p>SPACE = Shoot</p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 </html>
