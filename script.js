@@ -18,6 +18,8 @@ let player = {
 
 };
 
+let bullets = [];
+
 let keys = {};
 
 document.addEventListener(
@@ -25,6 +27,27 @@ document.addEventListener(
     function (event) {
 
         keys[event.key] = true;
+
+        if (event.key === " ") {
+
+            bullets.push({
+
+                x:
+                    player.x +
+                    player.width / 2 - 4,
+
+                y:
+                    player.y,
+
+                width: 8,
+
+                height: 20,
+
+                speed: 8
+
+            });
+
+        }
 
     }
 );
@@ -108,6 +131,56 @@ function movePlayer() {
 
 }
 
+function drawBullets() {
+
+    ctx.fillStyle =
+        "#ff4df0";
+
+    for (
+        let i = 0;
+        i < bullets.length;
+        i++
+    ) {
+
+        let bullet =
+            bullets[i];
+
+        ctx.fillRect(
+            bullet.x,
+            bullet.y,
+            bullet.width,
+            bullet.height
+        );
+
+    }
+
+}
+
+function moveBullets() {
+
+    for (
+        let i = 0;
+        i < bullets.length;
+        i++
+    ) {
+
+        bullets[i].y -=
+            bullets[i].speed;
+
+        if (
+            bullets[i].y < -20
+        ) {
+
+            bullets.splice(i, 1);
+
+            i--;
+
+        }
+
+    }
+
+}
+
 function gameLoop() {
 
     ctx.clearRect(
@@ -119,7 +192,11 @@ function gameLoop() {
 
     movePlayer();
 
+    moveBullets();
+
     drawPlayer();
+
+    drawBullets();
 
     requestAnimationFrame(
         gameLoop
