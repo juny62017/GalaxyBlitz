@@ -19,6 +19,7 @@ body{
 }
 
 .game-container{
+    position:relative;
     text-align:center;
 }
 
@@ -68,6 +69,70 @@ h1{
 
     color:#dcecff;
     font-size:14px;
+}
+
+.game-over-box{
+
+    position:absolute;
+
+    top:50%;
+    left:50%;
+
+    transform:
+    translate(-50%,-50%);
+
+    background:
+    rgba(0,0,0,0.9);
+
+    padding:30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    border:2px solid #3bbcff;
+
+    box-shadow:
+    0 0 20px rgba(59,188,255,0.4);
+}
+
+.game-over-box h2{
+
+    color:#ff5f7a;
+
+    margin-bottom:12px;
+
+    font-size:36px;
+}
+
+.final-score{
+
+    color:white;
+
+    margin-bottom:18px;
+
+    font-size:18px;
+}
+
+.restart-btn{
+
+    border:none;
+
+    padding:12px 20px;
+
+    background:#3bbcff;
+
+    color:white;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+}
+
+.hidden{
+    display:none;
 }
 
 @media(max-width:550px){
