@@ -7,6 +7,15 @@ canvas.getContext("2d");
 let scoreText =
 document.querySelector(".score-text");
 
+let gameOverBox =
+document.querySelector(".game-over-box");
+
+let finalScore =
+document.querySelector(".final-score");
+
+let restartBtn =
+document.querySelector(".restart-btn");
+
 let player = {
     x:180,
     y:560,
@@ -18,7 +27,16 @@ let player = {
 let bullets = [];
 let enemies = [];
 let keys = {};
+
 let score = 0;
+
+let gameRunning = true;
+
+restartBtn.onclick = function(){
+
+    location.reload();
+
+};
 
 document.addEventListener(
 "keydown",
@@ -26,7 +44,10 @@ function(event){
 
     keys[event.key] = true;
 
-    if(event.key === " "){
+    if(
+        event.key === " " &&
+        gameRunning
+    ){
 
         bullets.push({
             x:player.x + 26,
@@ -123,6 +144,10 @@ function moveBullets(){
 
 function createEnemy(){
 
+    if(!gameRunning){
+        return;
+    }
+
     enemies.push({
 
         x:Math.random() * 370,
@@ -207,7 +232,46 @@ function checkCollisions(){
 
 }
 
+function checkPlayerCollision(){
+
+    enemies.forEach(function(enemy){
+
+        if(
+
+            player.x <
+            enemy.x + enemy.width &&
+
+            player.x + player.width >
+            enemy.x &&
+
+            player.y <
+            enemy.y + enemy.height &&
+
+            player.y + player.height >
+            enemy.y
+
+        ){
+
+            gameRunning = false;
+
+            gameOverBox.classList.remove(
+                "hidden"
+            );
+
+            finalScore.innerText =
+            "Final Score: " + score;
+
+        }
+
+    });
+
+}
+
 function gameLoop(){
+
+    if(!gameRunning){
+        return;
+    }
 
     ctx.clearRect(
         0,
@@ -223,6 +287,8 @@ function gameLoop(){
     moveEnemies();
 
     checkCollisions();
+
+    checkPlayerCollision();
 
     drawPlayer();
 
