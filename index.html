@@ -3,59 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GalaxyBlitz</title>
+<title>Nebula Drift</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<div class="game-container">
+<div class="game-wrap">
 
-    <div class="top-bar">
-
+    <div class="header">
         <div>
-            <h1>GalaxyBlitz</h1>
-            <p class="subtitle">
-                Neon Space Shooter
-            </p>
+            <h1>Nebula Drift</h1>
+            <p class="sub">tiny space chaos project </p>
         </div>
-
-        <h2 class="score-text">
-            Score: 0
-        </h2>
-
+ 
+        <div class="score">Score : 0</div>
     </div>
 
-    <canvas
-        id="gameCanvas"
-        width="420"
-        height="650"
-    ></canvas>
+    <canvas id="gameCanvas"></canvas>
 
-    <div class="game-over-box hidden">
-
-        <h2>
-            Game Over
-        </h2>
-
-        <p class="final-score">
-            Final Score: 0
-        </p>
-
-        <button class="restart-btn">
-            Restart Game
-        </button>
-
+    <div class="over hidden">
+        <h2>you crashed </h2>
+        <p class="final">score : 0</p>
+        <button class="btn">play again</button>
     </div>
 
-    <div class="info-box">
-        <p>⬅️ ➡️ Move</p>
-        <p>SPACE = Shoot</p>
+    <div class="help">
+        <span>← → move</span>
+        <span>space shoot</span>
     </div>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
