@@ -146,6 +146,7 @@ function checkDeath(){
     });
 }
 
+
 function loop(){
     if(!alive) return;
 
